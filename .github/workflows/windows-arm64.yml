@@ -34,12 +34,12 @@ jobs:
           mkdir bld
           cd bld
           cmake .. -DWITH_SSL=bundled
-          cmake --build . --config RelWithDebinfo --target win_package --verbose -- -m
+          cmake --build . --config RelWithDebinfo --verbose -- -m
       - name: Upload MariaDB binaries
         uses: actions/upload-artifact@v7
         with:
           name: mariadb-windows
           path: |
-            bld/**/*.zip
+            bld/
           if-no-files-found: error
           retention-days: 7
